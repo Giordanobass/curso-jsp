@@ -48,6 +48,18 @@ CREATE TABLE usuario
   id bigint NOT NULL DEFAULT nextval('usersequence'::regclass),
   login character varying(500),
   senha character varying(20),
+  nome character varying(500),
+  telefone character varying(20),
+  cep character varying(200),
+  rua character varying(200),
+  bairro character varying(200),
+  cidade character varying(200),
+  estado character varying(200),
+  ibge character varying(200),
+  fotobase64 text,
+  contenttype text,
+  contenttypecurriculo text,
+  curriculobase64 text,
   CONSTRAINT usuario_pkey PRIMARY KEY (id)
 )
 WITH (
@@ -103,14 +115,13 @@ alter table usuario add column contenttype text;
 alter table usuario add column id bigint not null;
 alter table usuario alter column id set default nextval('usersequence'::regclass); 
 ALTER TABLE usuario ADD COLUMN nome character varying(500); 
+ALTER TABLE usuario ADD COLUMN contentTypeCurriculo text;
+ALTER TABLE usuario ADD COLUMN curriculoBase64 text;
   
-  INSERT INTO usuario(
-            id, login, senha)
-    VALUES (1, 'alex', 'alex');
 
 INSERT INTO usuario(
             id, login, senha)
-    VALUES (2, 'admin', 'admin');
+    VALUES (1, 'admin', 'admin');
 
 
     
